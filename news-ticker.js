@@ -50,7 +50,6 @@ function recent_post_text(){
 	document.write(s);
 }
 function recent_post_style(){
-	/*
 	var s = "<style type='text/css'>";
 	s += "#recent_post{";
 	s += "position:absolute;";
@@ -62,7 +61,6 @@ function recent_post_style(){
 	s += "}";
 	s += "</style>";
 	document.write(s);
-	*/
 }
 function recent_post_content(){
 	var s = "<div id='recent_post' title='All Blogger Tricks Ticker'>";
@@ -73,9 +71,9 @@ function recent_post_content(){
 		//s += " height='20'/>";
 		//s += " </a>";
 		//s += "</div>";
-		//s += "<div style='float:left; text-align:right; margin-left:20px;'>";
-		//s += "Latest Articles:";
-		//s += "</div>";
+		s += "<div style='float:left; text-align:right; margin-left:20px;'>";
+		s += "Latest Articles:";
+		s += "</div>";
 	}
 
 	s += "  <marquee style='float:left; margin-left:10px; width:82%' scrollAmount='"+scrolling_speed+"'>";
