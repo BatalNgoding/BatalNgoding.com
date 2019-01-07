@@ -1,0 +1,59 @@
+
+
+    /*########Default Newsticker Styles#########*/
+
+    .ticker-wrapper.has-js{margin:20px 0;padding:0 20px;width:780px;height:32px;display:block;-webkit-border-radius:15px;-moz-border-radius:15px;border-radius:15px;background-color:#f8f0db;font-size:.75em}
+    .ticker{width:710px;height:23px;display:block;position:relative;overflow:hidden;background-color:#f8f0db}
+    .ticker-title{padding-top:9px;color:#900;font-weight:700;background-color:#f8f0db;text-transform:uppercase}
+    .ticker-content{margin:0;padding-top:9px;position:absolute;color:#1F527B;font-weight:700;background-color:#f8f0db;overflow:hidden;white-space:nowrap;line-height:1.2em}
+    .ticker-content a{text-decoration:none;color:#1F527B}
+    .ticker-content a:hover{text-decoration:underline;color:#0D3059}
+    .ticker-swipe{padding-top:9px;position:absolute;top:0;background-color:#f8f0db;display:block;width:800px;height:23px}
+    .ticker-swipe span{margin-left:1px;background-color:#f8f0db;border-bottom:1px solid #1F527B;height:12px;width:7px;display:block}
+    .ticker-controls{padding:8px 0 0;list-style-type:none;float:left}
+    .ticker-controls li{padding:0;margin-left:5px;float:left;cursor:pointer;height:16px;width:16px;display:block}
+    .ticker-controls li.jnt-play-pause{background-image:url(../images/controls.png);background-position:32px 16px}
+    .ticker-controls li.jnt-play-pause.over{background-position:32px 32px}
+    .ticker-controls li.jnt-play-pause.down{background-position:32px 0}
+    .ticker-controls li.jnt-play-pause.paused{background-image:url(../images/controls.png);background-position:48px 16px}
+    .ticker-controls li.jnt-play-pause.paused.over{background-position:48px 32px}
+    .ticker-controls li.jnt-play-pause.paused.down{background-position:48px 0}
+    .ticker-controls li.jnt-prev{background-image:url(../images/controls.png);background-position:0 16px}
+    .ticker-controls li.jnt-prev.over{background-position:0 32px}
+    .ticker-controls li.jnt-prev.down{background-position:0 0}
+    .ticker-controls li.jnt-next{background-image:url(../images/controls.png);background-position:16px 16px}
+    .ticker-controls li.jnt-next.over{background-position:16px 32px}
+    .ticker-controls li.jnt-next.down{background-position:16px 0}
+    .js-hidden{display:none}
+    .no-js-news{padding:10px 0 0 45px;color:#F8F0DB}
+    .left .ticker-controls,.left .ticker-content,.left .ticker-title,.left .ticker{float:left}
+    .left .ticker-controls{padding-left:6px}
+    .right .ticker-controls,.right .ticker-content,.right .ticker-title,.right .ticker{float:right}
+    .right .ticker-controls{padding-right:6px}
+
+    /*########Blogger Newsticker by MBT#########*/
+    .ticker-wrapper.has-js{margin:0;padding:0;width:98%;height:42px;display:block;border-radius:0;background-color:#fff;border:1px solid #eee;font-size:12px}
+    .ticker{width:80%;height:42px;display:block;position:relative;overflow:hidden;background-color:#fff}
+    .ticker-title{background:#71db00;padding:10px;color:#FFF;font-size:16px;font-family:oswald;text-transform:uppercase;text-shadow:1px 1px 6px #666}
+    .ticker-title:after{left:76px;top:10px;height:0;width:0;position:absolute;content:" ";pointer-events:none;margin-left:0;margin-top:1px;border-left:13px solid #71db00;border-top:10px solid transparent;border-bottom:10px solid transparent;-moz-transform:scale(.9999)}
+    .ticker-content{background-color:#fff;margin-left:15px;color:#444;margin-top:1px}
+    .ticker-swipe{background-color:#fff;position:relative;top:5px;left:100px!important}
+    .ticker-swipe span{margin-left:1px;background-color:#fff;border-bottom:1px solid #333;height:12px;width:7px}
+    .ticker-controls{padding:0!important;margin:13px 0 0 10px !important;list-style-type:none;position:relative;right:-50px}
+    .ticker-controls li{padding:0;margin-left:5px;float:left;cursor:pointer;height:16px;width:16px;display:block}
+    .ticker-controls li a{border:0!important;padding:0!important}
+    .ticker-controls li.jnt-play-pause,.ticker-controls li.jnt-play-pause.paused,.ticker-controls li.jnt-play-pause.paused.over,.ticker-controls li.jnt-prev,.ticker-controls li.jnt-play-pause.over,.ticker-controls li.jnt-next{position:absolute;background:none}
+    .ticker-controls li.jnt-play-pause:after,.ticker-controls li.jnt-play-pause.over:after{content:"\f04c";font-size:13px;color:#71db00;font-family:fontAwesome;position:relative;left:1.8em}
+    .ticker-controls li.jnt-play-pause.paused:after,.ticker-controls li.jnt-play-pause.paused.over:after{content:"\f04b";font-size:13px;color:#71db00;font-family:fontAwesome;position:relative;left:1.8em}
+    .ticker-controls li.jnt-prev:after{content:"\f04a";font-size:13px;color:#71db00;font-family:fontAwesome;position:relative;left:0}
+    .ticker-controls li.jnt-next:after{content:"\f04e";font-size:13px;color:#71db00;font-family:fontAwesome;position:relative;left:3.6em}
+    .ticker .iauthor:before,.ticker .icomments:before,.ticker .idate:before{font-family:fontAwesome;position:relative;padding-right:8px;color:#fff}
+    .ticker .iauthorpic{width:16px!important;height:16px!important;border-radius:50%;float:none;display:inline-block!important;margin:0;padding-right:3px;position:relative;top:3px}
+    .ticker span{padding-right:5px;font-family:Oswald;font-weight:400}
+    .ticker .icomments a{color:#71db00;font-size:11px}
+    .ticker .icomments a:hover{text-decoration:underline}
+    .ticker .icomments:before{content:'\f086';padding:0 3px 0 0;color:#777;position:relative;top:-1px}
+    .ticker .idate{font-size:11px;padding-right:7px}
+    .ticker .idate:before{content:'\f073';padding:0 5px;color:#777;position:relative;top:-1px}
+    .ticker .mbttitle{font-family:oswald;font-size:14px;color:#71db00!important;font-weight:400;text-decoration:none}
+    .ticker .mbttitle:hover{text-decoration:underline}
