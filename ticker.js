@@ -1,186 +1,73 @@
-/* Predefined Variables Are:
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+<script src="http://www.jquerynewsticker.com/includes/jquery.ticker.js" type="text/javascript"></script>
+<script type="text/javascript">
+//----------------------------Defaults
+var ListBlogLink = "https://www.batalngoding.com";
+var ListCount = 5;
+var TitleCount = 70;
+var ListLabel = "Widgets";
 
- *     blog_url
+//----------------------------Function Start
+function mbtlist(json) {
+document.write('<ul id="js-news" class="js-hidden">');
+for (var i = 0; i < ListCount; i++)
+{
 
- *     latest_post
-
- *     background_color
-
- *     border_color
-
- *     scrolling_speed
-
- *     info_text
-
- *     close_button
-
- */
-
-var entries; var feed;
-
-var feed_url = blog_url.match(/\/$/) ? blog_url : blog_url+&quot;/&quot;;
-
-feed_url += &quot;feeds/posts/default&quot;;
-
-function recent_post_createEntries(){
-
-    var entries = feed.entry;
-
-    var entriesArr = [];
-
-    for(var i=0; i&lt;latest_post; i++){
-
-        var entry = entries[i];
-
-        var entryObj = new Object();
-
-        entryObj.title = entry.title.$t;
-
-        entryObj.href  = getHref(entry.link);
-
-        entriesArr.push(entryObj);
-
-    }
-
-    return entriesArr;
-
+//-----------------------------Variables Declared
+var listing= ListImage = ListUrl = ListTitle = ListImage = ListContent = ListConten = ListAuthor = ListTag = ListDate = ListUpdate = ListComments = thumbUrl = TotalPosts = sk = AuthorPic= ListMonth = Y = D = M = m = YY = DD = MM = mm = TT =  "";
+//----------------------------- Title URL
+for (var j = 0; j < json.feed.entry[i].link.length; j++) {
+if (json.feed.entry[i].link[j].rel == 'alternate') {
+break;
+}
+}
+ListUrl= "'" + json.feed.entry[i].link[j].href + "'";
+//----------------------------------- Title Stirng
+if (json.feed.entry[i].title!= null)
+{
+ListTitle= json.feed.entry[i].title.$t.substr(0, TitleCount);
 }
 
-function getBlogTitle(){
-
-    return feed.title.$t;
-
+if (json.feed.entry[i].thr$total)
+{
+ListComments= "<a href='"+json.feed.entry[i].link[j].href+"#comment-form'>"+json.feed.entry[i].thr$total.$t+"</a>";
 }
+ListAuthor= json.feed.entry[i].author[0].name.$t.split(" ");
+ListAuthor=ListAuthor.slice(0, 1).join(" ");
+AuthorPic = json.feed.entry[i].author[0].gd$image.src;
 
-function  getBlogURL(){
+//################### Date Format
 
-    return getHref(feed.link);
+ListMonth= ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
+ListDate= json.feed.entry[i].published.$t.substring(0,10);
+
+                         Y = ListDate.substring(0, 4);
+                        m = ListDate.substring(5, 7);
+                         D = ListDate.substring(8, 10);
+                         M = ListMonth[parseInt(m - 1)]; 
+//----------------------------------- Printing List
+var listing = "<li class='news-item'><span class='iauthor'><img class='iauthorpic' src='"+AuthorPic+"'/>"
++ListAuthor+ "</span> <span class='icomments'>"
++ListComments + "</span>  <span class='idate'>"
++ D + " " + M + "</span><i class='fa fa-chevron-right'></i> <a class='mbttitle' href="
++ListUrl+
+"target='_blank'>"
++ListTitle+
+"</a></li>";
+document.write(listing);
 }
-
-function getHref(links){
-
-    for(var i=0; i&lt;links.length; i++){
-
-        var link = links[i];
-
-        if(link.rel == &quot;alternate&quot;){return link.href;}
-
-    }
-
-    return null;
-
 }
+document.write("</ul><script src='"+ListBlogLink+"/feeds/posts/default/-/"+ListLabel+"?alt=json-in-script&callback=mbtlist'></"+"script>");
 
-function recent_post_start(json){
-
-    feed = json.feed;
-
-    entries = recent_post_createEntries();
-
-    recent_post_style();
-
-    recent_post_content();
-
-}
-
-function recent_post_text(){
-
-    var src = feed_url+&quot;?alt=json-in-script&amp;callback=recent_post_start&amp;max-results=&quot;+latest_post;
-
-    var s = &quot;&lt;script src='&quot;+src+&quot;'&gt;&lt;/script&gt;&quot;;
-
-    document.write(s);
-
-}
-
-function recent_post_style(){
-
-    var s = &quot;&lt;style type='text/css'&gt;&quot;;
-
-    s += &quot;#recent_post{&quot;;
-
-  s += &quot;position:absolute;&quot;;
-
-    s += &quot;margin:0px;&quot;;
-
-    s += &quot;padding: 5px 2px 2px;&quot;;
-
-    s += &quot;width:auto;&quot;;
-
-    s += &quot;background:#fff;&quot;;
-
-    s += &quot;border:1px solid #ddd&quot;;
-
-    s += &quot;}&quot;;
-
-    s += &quot;&lt;/style&gt;&quot;;
-
-    document.write(s);
-
-}
-
-function recent_post_content(){
-
-    var s = &quot;&lt;div id='recent_post' title='All Blogger Tricks Ticker'&gt;&quot;;
-
-    if(info_text){
-
-	s += &quot;&lt;div style='float:left'&gt;&quot;;
-
-    s += &quot; &lt;a href='&quot;+feed_url+&quot;'&gt;&quot;;
-
-    s += &quot;  &lt;img src='http://lh6.ggpht.com/__TByDg0HQqc/S6cjD0Sz1OI/AAAAAAAAAd4/O4s-OkSpdF8/menujublog_rss.gif'&quot;;
-
-    s += &quot; height='20'/&gt;&quot;;
-
-    s += &quot; &lt;/a&gt;&quot;;
-
-    s += &quot;&lt;/div&gt;&quot;;
-
-    s += &quot;&lt;div style='float:left; text-align:right; margin-left:20px;'&gt;&quot;;
-
-    s += &quot;Latest Articles:&quot;;
-
-    s += &quot;&lt;/div&gt;&quot;;
-
-    }
-
-    s += &quot;  &lt;marquee style='float:left; margin-left:10px; width:82%' scrollAmount='&quot;+scrolling_speed+&quot;'&gt;&quot;;
-
-    for(var i=0; i&lt;latest_post; i++){
-
-        var recent_post_entries = entries[i];
-
-        s += &quot;&lt;a href='&quot;+recent_post_entries.href+&quot;' &quot;;
-
-        s += &quot;onmouseover='this.parentNode.stop()' onmouseout='this.parentNode.start()'&quot;;
-
-        s += &quot;&gt;&quot; + recent_post_entries.title + &quot;&lt;/a&gt;&quot;;
-
-        if(i != latest_post-1){s += &quot; | &quot;;}
-
-    }
-
-    s += &quot;&lt;/marquee&gt;&quot;;
-
-    if(close_button){
-
-	s += &quot;&lt;div style='float:right; margin-right:10px;'&gt;&quot;;
-
-    s += &quot;&lt;a href='javascript:void(0)' onclick='document.getElementById(\&quot;recent_post\&quot;).style.display=\&quot;none\&quot;'&gt;&quot;;
-
-    s += &quot;(x)&quot;;
-
-    s += &quot;&lt;/a&gt;&quot;;
-
-    s += &quot;&lt;/div&gt;&quot;;
-
-    }
-
-    document.write(s);
-
-}
-
-recent_post_text();
-
+/*##########Breaking News Ticker Settings########*/
+    $(function () {
+        $('#js-news').ticker({
+        speed: 0.20,
+        controls: true,  
+        titleText: 'Hottest',
+        displayType: 'reveal',
+        pauseOnItems: 2000,   
+});
+});
+</script> 
