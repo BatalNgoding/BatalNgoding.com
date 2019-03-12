@@ -34,11 +34,11 @@ function DisplaytheTOC(PostTitles,PostURLs,PostYears,PostMonths,PostDays)
 {
 	var MonthNames=["January","February","March","April","May","June","July","August","September","October","November","December"];
 	var NumberOfEntries=PostTitles.length;
-	document.write('<div class="arch-list">');
+	document.write('<ul class="arch-list">');
 	for(var EntryNum = 0; EntryNum < NumberOfEntries; EntryNum++)
 	{
 		NameOfMonth = MonthNames[parseInt(PostMonths[EntryNum],10)-1]
-		document.write('<a href ="'+PostURLs[EntryNum]+'" class="list-link">'+PostTitles[EntryNum]+"</a> ("+NameOfMonth+" "+parseInt(PostDays[EntryNum],10)+", "+PostYears[EntryNum]+")<br />");
+		document.write('<li class="list-out"><a href ="'+PostURLs[EntryNum]+'" class="list-link">'+PostTitles[EntryNum]+"</a> ("+NameOfMonth+" "+parseInt(PostDays[EntryNum],10)+", "+PostYears[EntryNum]+")</li>");
 	}
-	document.write('</div>');
+	document.write('</ul>');
 }
